@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+
+<body>
+    <input type="text" id="valor">
+    <button id="calcular">Calcular</button>
+
+    <div>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        let valorTabuada = document.getElementById("valor");
+        let calcularTabuada = document.getElementById("calcular");
+        var tela = document.getElementById("resultado").innerText;
+        let conteudo = "<br>";
+
+        calcularTabuada.addEventListener('click', function () {
+            let valorCalcular = Number.parseInt(valorTabuada.value);
+
+            calcularNumero(valorCalcular);
+        })
+
+        function calcularNumero(x) {
+
+            if (x < 1 || typeof(x) != Number) {
+                document.getElementById("resultado").innerHTML = "Valor Invalido!";
+            } else {
+                for (let i = 1; i <= 10; i++) {
+                    let tabuadaExplicita = i * x;
+                    conteudo = conteudo + `${i} x ${x} = ${tabuadaExplicita}<br>` + "<br>";
+                    document.getElementById("resultado").innerHTML = conteudo;
+                    console.log(tabuadaExplicita);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
